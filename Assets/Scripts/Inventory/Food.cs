@@ -1,0 +1,36 @@
+using UnityEngine;
+using System;
+
+namespace Inventory
+{
+	public interface IConsumable { }
+	[Serializable]
+	public class Food : Item, IUsable, ISellable, IConsumable
+	{
+		#region Properties
+		[field: SerializeField] public float HealingPoints { get; set; }
+		[field: SerializeField] public float Price { get; set; }
+
+
+
+		#endregion
+
+
+		#region Public Methods
+		public float Sell()
+		{
+			Debug.Log("Has ganado " + Price + " dinero");
+			return Price;
+		}
+
+		public void Use()
+		{
+			Debug.Log("Te comes " + Name + " y ganas " + HealingPoints + " de vida");
+		}
+		#endregion
+	}
+}
+
+
+
+
